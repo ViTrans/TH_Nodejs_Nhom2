@@ -12,45 +12,28 @@
     </tr>
   </thead>
   <tbody>
+    <% data.users.forEach(element => { %>
     <tr>
-      <td>1</td>
-      <td>Trần Bảo Vĩ</td>
-      <td>tbv</td>
-      <td>Nam</td>
-      <td>vitran@gmail.com</td>
-      <td>Cần Thơ</td>
-      <td>User</td>
+      <td><%= element.id %></td>
+      <td><%= element.fullname %></td>
+      <td><%= element.username %></td>
+      <td><%= element.sex == 1 ? "nam" : "nu" %></td>
+      <td><%= element.email %></td>
+      <td><%= element.address %></td>
+      <td><%= element.groupid == 1 ? "admin" : "user" %></td>
       <td class="d-flex gap-2">
-        <a href="#">
+        <a href="/detail-user/<%= element.username  %>">
           <i class="fa fa-eye"></i>
         </a>
-        <a href="#">
+        <a href="/edit-user/<%= element.username %>">
           <i class="fa fa-edit"></i>
         </a>
-        <a href="#">
+        <a href="/delete-user/<%= element.username %>">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Nguyễn Văn B</td>
-      <td>nva</td>
-      <td>Nam</td>
-      <td>nva@gmail.com</td>
-      <td>Cần Thơ</td>
-      <td>User</td>
-      <td class="d-flex gap-2">
-        <a href="#">
-          <i class="fa fa-eye"></i>
-        </a>
-        <a href="#">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="#">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </a>
-      </td>
-    </tr>
+
+    <% }) %>
   </tbody>
 </table>

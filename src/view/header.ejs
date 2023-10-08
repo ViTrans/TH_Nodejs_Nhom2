@@ -21,11 +21,24 @@
           <a class="nav-link" href="/list-user">List User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/create-new-user">Create User</a>
         </li>
+        <% if ( locals.user ) { %>
+        <li>
+          <a class="nav-link" href="/detail-user/<%= locals.user.username %>"
+            ><%= locals.user.username %></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+
+        <% } %>
       </ul>
     </div>
   </div>
